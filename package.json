@@ -1,0 +1,11 @@
+{
+  "name": "starter-node-angular",
+  "main": "server.js",
+  "dependencies": {
+    "express" : "*",
+    "mongoose" : "*",
+    "body-parser" : "*",
+    "method-override" : "*",
+    "braintree" : "*"        
+  }
+}
