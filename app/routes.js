@@ -7,6 +7,7 @@ var gateway = braintree.connect({
     publicKey:    '79zqb2p3588drqbw',
     privateKey:   '70ae751bf500c2cee91294d5dc9b1af2'
 });
+
 	module.exports = function(app){
 
 		// server routes ===========================================================

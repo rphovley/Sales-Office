@@ -3,7 +3,7 @@
 /*var message = require('../../app/models/messages');*/
 
 angular.module('MessagesCtrl', []).controller('MessagesController', function($scope, MessagesService) {
-
+	$scope.parent = 'MESSAGE stuff';
     MessagesService.get()
     	.success(function(data){
 			console.log('success!');
