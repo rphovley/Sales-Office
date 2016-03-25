@@ -9,10 +9,5 @@
     "angular-route": "latest",
     "parse": "^1.8.1",
     "braintree-web": "^2.21.0"
-  },
-  "ignore": [
-    "**/.*",
-    "bower-componenets",
-    "node_modules"
-  ]
+  }
 }
