@@ -41,7 +41,10 @@ angular.module('LoginCtrl', []).controller('LoginController', function($scope, $
       console.log(form);
       if(form.$valid){
       	  console.log("it's valid");
-	      Parse.User.signUp(username, password, { ACL: new Parse.ACL() }, {
+	      Parse.User.signUp(username, password,
+	       { 'fullName': 'Paul Hovley', //additional attributes go here
+	       ACL: new Parse.ACL() }, 
+	       {
 	        success: function(user) {
 	          //redirect to home page
 	          $location.path('index');
