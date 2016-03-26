@@ -44,6 +44,8 @@ angular.module('LoginCtrl', []).controller('LoginController', function($scope, $
 	      Parse.User.signUp(username, password, { ACL: new Parse.ACL() }, {
 	        success: function(user) {
 	          //redirect to home page
+	          $location.path('index');
+		      $window.location.reload();
 	          console.log("Success!");
 	        },
 
