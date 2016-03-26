@@ -3,6 +3,7 @@
     
     Parse.initialize("test_id");
     Parse.serverURL = 'http://nextbigparseserver.azurewebsites.net:1337/parse';
+    console.log("ROUTING");
     if(Parse.User.current()){ //if the user is logged in
         $routeProvider
             // home page
@@ -24,8 +25,6 @@
             .when('/checkout', {
                 templateUrl: 'views/checkout.html',
                 controller: 'MainController'
-            }).otherwise({
-                redirectTo: '/login'
             })
     }else{ //if the user is not logged in
         $routeProvider

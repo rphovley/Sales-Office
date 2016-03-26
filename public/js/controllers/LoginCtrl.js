@@ -1,31 +1,37 @@
 
 'use strict';
 // public/js/controllers/MainCtrl.js
-angular.module('LoginCtrl', []).controller('LoginController', function($scope) {
+angular.module('LoginCtrl', []).controller('LoginController', function($scope, $location, $window) {
 
 	$scope.isLogin = true;
 	console.log($scope.isLogin);
 	Parse.initialize("test_id");
-    Parse.serverURL = 'http://nextbigparseserver.azurewebsites.net:1337/parse';
+    Parse.serverURL = 'http://nextbigparseserver.azurewebsites.net/parse';
     $scope.username = ""
     $scope.password = "";
-    $scope.logIn = function(e) {
-      var username = $("#login-username").val();
-      var password = $("#login-password").val();
-      
-      Parse.User.logIn(username, password, {
-        success: function(user) {
-          //redirect to home page
-        },
+    $scope.logIn = function(form) {
+      	var username = $scope.username;
+      	var password = $scope.password;
+      	
+      	console.log("login clicked");
+		if(form.$valid){
+			console.log("valid form");
+			  Parse.User.logIn(username, password, {
+			    success: function(user) {
+			      //redirect to home page
+			      console.log("logged in!");
+			      $location.path('index');
+			      $window.location.reload();
+			    },
 
-        error: function(user, error) {
-          self.$(".login-form .error").html("Invalid username or password. Please try again.").show();
-          self.$(".login-form button").removeAttr("disabled");
-        }
-      });
-
-      this.$(".login-form button").attr("disabled", "disabled");
-
+			    error: function(user, error) {
+			      $(".error").html("Invalid username or password. Please try again.").show();
+			      $("#loginBtn").removeAttr("disabled");
+			    }
+			  });
+		}	
+		$("#loginBtn").attr("disabled", "disabled");
+     
       return false;
     }
 
@@ -42,7 +48,7 @@ angular.module('LoginCtrl', []).controller('LoginController', function($scope) {
 	        },
 
 	        error: function(user, error) {
-	          $(".error").html(_.escape('Someone with that username already exists')).show();
+	          $(".error").html('Someone with that username already exists').show();
 	          $("#signupBtn").removeAttr("disabled");
 	        }
 	      });

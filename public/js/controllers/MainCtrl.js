@@ -1,6 +1,6 @@
 'use strict';
 // public/js/controllers/MainCtrl.js
-angular.module('MainCtrl', []).controller('MainController', function($scope) {
+angular.module('MainCtrl', []).controller('MainController', function($scope, $location, $window) {
 
     $scope.tagline = 'To the moon and back!';   
     $scope.parent = 'parent stuff';
@@ -11,4 +11,10 @@ angular.module('MainCtrl', []).controller('MainController', function($scope) {
     	$scope.authorized = false;
     }
     console.log($scope.authorized);
+
+    $scope.logout = function(){
+    	Parse.User.logOut();
+    	$location.path('login');  
+    	$window.location.reload();
+    }
 });

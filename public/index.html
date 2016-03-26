@@ -46,7 +46,6 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="/">GCM Messaging App</a>
         </div>
-
         <!-- LINK TO OUR PAGES. ANGULAR HANDLES THE ROUTING HERE -->
         <ul class="nav navbar-nav">
             <li><a href="/messages">Messages</a></li>
@@ -54,6 +53,7 @@
         <ul class="nav navbar-nav">
             <li><a href="/payment">Payments</a></li>
         </ul>
+        <a class="navbar-brand navbar-right" ng-click="logout()">Logout</a>
     </nav>
 
     <div ng-view></div> 
