@@ -1,2 +1,22 @@
-<auth-dialog></auth-dialog>
+
+<div class="container" ng-controller="LoginController">
+    <form name="login-form" ng-show="isLogin">
+      <h2>Log In</h2>
+      <div class="error" style="display:none"></div>
+      <input type="text" id="login-username" ng-model="username" placeholder="Username" />
+      <input type="password" id="login-password" ng-model="password" placeholder="Password" />
+      <div class="row">
+            <button class="btn btn-default col-md-2" type="submit">Log In</button>
+            <button class="btn btn-default col-md-2 col-md-offset-6" ng-click="toggleForms()">Register </button>
+      </div>
+    </form>
+    <form name="signupForm" ng-show="!isLogin">
+          <h2>Sign Up</h2>
+          <div class="error" style="display:none"></div>
+          <input type="text" id="signup-username" ng-model="username" placeholder="Username" />
+          <input type="password" id="signup-password" ng-model="password" placeholder="Create a Password" />
+          <button id="signupBtn" class="btn btn-default" type="submit" ng-click="signup(signupForm)">Sign Up</button>
+          <a ng-click="toggleForms()">Already have an account?</a>
+    </form>
+</div>
 

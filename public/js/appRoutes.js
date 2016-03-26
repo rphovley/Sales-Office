@@ -3,7 +3,7 @@
     
     Parse.initialize("test_id");
     Parse.serverURL = 'http://nextbigparseserver.azurewebsites.net:1337/parse';
-    if(!Parse.User.current()){ //if the user is logged in
+    if(Parse.User.current()){ //if the user is logged in
         $routeProvider
             // home page
             .when('/', {

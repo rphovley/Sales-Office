@@ -7,7 +7,7 @@ angular.module('MainCtrl', []).controller('MainController', function($scope) {
     Parse.initialize("test_id");
     Parse.serverURL = 'http://nextbigparseserver.azurewebsites.net:1337/parse';
     $scope.authorized = true
-    if(Parse.User.current()){
+    if(!Parse.User.current()){
     	$scope.authorized = false;
     }
     console.log($scope.authorized);
