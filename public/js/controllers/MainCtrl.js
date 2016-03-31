@@ -2,6 +2,7 @@
 // public/js/controllers/MainCtrl.js
 angular.module('MainCtrl', []).controller('MainController', function($scope, $location, $window) {
 
+	Parse.User.extend()
     $scope.tagline = 'To the moon and back!';   
     $scope.parent = 'parent stuff';
     Parse.initialize("test_id");
@@ -13,8 +14,7 @@ angular.module('MainCtrl', []).controller('MainController', function($scope, $lo
     console.log($scope.authorized);
 
     $scope.logout = function(){
-    	Parse.User.logOut();
-    	$location.path('login');  
+    	Parse.User.logOut();  
     	$window.location.reload();
     }
 });

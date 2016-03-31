@@ -20,7 +20,6 @@ angular.module('LoginCtrl', []).controller('LoginController', function($scope, $
 			    success: function(user) {
 			      //redirect to home page
 			      console.log("logged in!");
-			      $location.path('index');
 			      $window.location.reload();
 			    },
 
@@ -47,7 +46,6 @@ angular.module('LoginCtrl', []).controller('LoginController', function($scope, $
 	       {
 	        success: function(user) {
 	          //redirect to home page
-	          $location.path('index');
 		      $window.location.reload();
 	          console.log("Success!");
 	        },

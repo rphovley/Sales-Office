@@ -25,6 +25,8 @@
             .when('/checkout', {
                 templateUrl: 'views/checkout.html',
                 controller: 'MainController'
+            }).when('/login',{
+                redirectTo:'/'
             })
     }else{ //if the user is not logged in
         $routeProvider
