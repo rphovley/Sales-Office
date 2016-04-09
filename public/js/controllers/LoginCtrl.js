@@ -7,9 +7,10 @@ angular.module('LoginCtrl', []).controller('LoginController', function($scope, $
 	console.log($scope.isLogin);
 	Parse.initialize("test_id");
     Parse.serverURL = 'http://nextbigparseserver.azurewebsites.net/parse';
-    $scope.username = ""
+    $scope.username = "";
     $scope.password = "";
     $scope.logIn = function(form) {
+    	$("#overlay").addClass("currentlyLoading");
       	var username = $scope.username;
       	var password = $scope.password;
       	
@@ -20,6 +21,7 @@ angular.module('LoginCtrl', []).controller('LoginController', function($scope, $
 			    success: function(user) {
 			      //redirect to home page
 			      console.log("logged in!");
+			      $("#overlay").removeClass("currentlyLoadi");
 			      $window.location.reload();
 			    },
 
