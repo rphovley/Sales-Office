@@ -1,0 +1,23 @@
+<style>
+    #inside {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+</style>
+
+<div id="outside" ng-controller="ProfileController">
+    <div class="row" id="inside">
+        <h2>{{band_name}}</h2>
+        
+        <h4>{{home_city}}</h4>
+        
+        <h4>{{record_label}}</h4>
+        
+        <h4>{{influences}}</h4>
+        
+        <p>{{band_info}}</p>
+        
+        <br>
+        <a href id="editProfileBtn" class="btn btn-default" ng-click="editProfileRedirect()">Edit Profile</a>
+    </div>
+</div>

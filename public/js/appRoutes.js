@@ -28,6 +28,18 @@
             }).when('/login',{
                 redirectTo:'/'
             })
+        
+             //profile controller
+            .when('/profile', {
+                templateUrl: 'views/profile.html',
+                controller: 'MainController'
+            })
+            
+            //Edit profile controller
+            .when('/editProfile', {
+                templateUrl: 'views/editProfile.html',
+                controller: 'MainController'
+            })
     }else{ //if the user is not logged in
         $routeProvider
         .otherwise({

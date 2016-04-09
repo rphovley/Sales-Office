@@ -1,6 +1,6 @@
 <div class="row container">
     <div>
-        <img class="img-responsive center-block" src="img/elephant.png"></img>
+        <img class="img-responsive center-block" src="img/elephant.png">
     </div>
     <div class="pagination-centered col-md-6 col-md-offset-3"  ng-controller="LoginController">
         <div id="overlay"><img src="loading.gif" alt="Be patient..." /></div>
@@ -11,7 +11,7 @@
           <input type="password" id="login-password" ng-model="password" placeholder="Password" />
           <div class="row container">
                 <button id="loginBtn" class="btn btn-default col-md-2" type="submit" ng-click="logIn(loginForm)">Log In</button>
-                <button class="btn btn-default col-md-2" ng-click="toggleForms()">Register </button>
+                <button class="btn btn-default col-md-2" ng-click="toggleForms()">Register</button>
           </div>
         </form>
         <form name="signupForm" ng-show="!isLogin">
@@ -23,8 +23,6 @@
               <a ng-click="toggleForms()">Already have an account?</a>
         </form>
     </div>
-  </div>
-
     <div class="row center-block">
         <h2 class="col-md-8 col-md-offset-3">Be the next Big Thing!</h2>
     </div>
