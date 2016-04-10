@@ -10,7 +10,7 @@ angular.module('LoginCtrl', []).controller('LoginController', function($scope, $
     $scope.username = "";
     $scope.password = "";
     $scope.logIn = function(form) {
-    	$("#overlay").addClass("currentlyLoading");
+    	$("#overlay").addClass("currently-loading");
       	var username = $scope.username;
       	var password = $scope.password;
       	
@@ -21,7 +21,7 @@ angular.module('LoginCtrl', []).controller('LoginController', function($scope, $
 			    success: function(user) {
 			      //redirect to home page
 			      console.log("logged in!");
-			      $("#overlay").removeClass("currentlyLoadi");
+			      $("#overlay").removeClass("currently-loading");
 			      $window.location.reload();
 			    },
 
