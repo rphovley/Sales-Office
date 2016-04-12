@@ -28,10 +28,12 @@ angular.module('LoginCtrl', []).controller('LoginController', function($scope, $
 			    error: function(user, error) {
 			      $(".error").html("Invalid username or password. Please try again.").show();
 			      $("#loginBtn").removeAttr("disabled");
+			      $("#signupBtn").removeAttr("disabled");
 			    }
 			  });
 		}	
 		$("#loginBtn").attr("disabled", "disabled");
+		$("#signupBtn").attr("disabled", "disabled");
      
       return false;
     }
@@ -55,10 +57,12 @@ angular.module('LoginCtrl', []).controller('LoginController', function($scope, $
 	        error: function(user, error) {
 	          $(".error").html('Someone with that username already exists').show();
 	          $("#signupBtn").removeAttr("disabled");
+	          $("#loginBtn").removeAttr("disabled");
 	        }
 	      });
 		}
-      $("#signupBtn").attr("disabled", "disabled");
+		$("#loginBtn").attr("disabled", "disabled");
+     	$("#signupBtn").attr("disabled", "disabled");
 
       return false;
     },
