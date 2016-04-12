@@ -1,2 +1,2 @@
 'use strict';
-angular.module('sampleApp', ['ngRoute', 'appRoutes', 'MainCtrl','LoginCtrl', 'HomeCtrl', 'MessagesCtrl','PaymentsCtrl', 'ProfileCtrl', 'EditProfileCtrl', 'MessagesService', 'PaymentsService']);
+angular.module('sampleApp', ['ngRoute', 'appRoutes', 'MainCtrl','LoginCtrl', 'HomeCtrl', 'MessagesCtrl','PaymentsCtrl', 'ProfileCtrl', 'EditProfileCtrl', 'ArtistCtrl', 'MessagesService', 'PaymentsService']);

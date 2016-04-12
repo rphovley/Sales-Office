@@ -40,6 +40,14 @@
                 templateUrl: 'views/editProfile.html',
                 controller: 'MainController'
             })
+        
+            //Artists controller
+            .when('/artists', {
+                templateUrl: 'views/artists.html',
+                controller: 'MainController'
+            })
+        
+        
     }else{ //if the user is not logged in
         $routeProvider
         .otherwise({

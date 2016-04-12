@@ -38,6 +38,7 @@
     <script src="js/controllers/PaymentsCtrl.js"></script>
     <script src="js/controllers/ProfileCtrl.js"></script>
     <script src="js/controllers/EditProfileCtrl.js"></script>
+    <script src="js/controllers/ArtistCtrl.js"></script>
     <script src="js/services/MessagesService.js"></script>
     <script src="js/services/PaymentsService.js"></script>
     <script src="js/appRoutes.js"></script>
@@ -61,13 +62,23 @@
          <ul class="nav navbar-nav">
             <li><a href="/profile">Profile</a></li>
         </ul>
-        <a class="navbar-brand navbar-right" ng-click="logout()">Logout</a>
+        <ul class="nav navbar-nav">
+            <li><a href="/artists">Artists</a></li>
+        </ul>
+        <a class="navbar-brand navbar-right" id="logout" ng-click="logout()">Logout</a>
     </nav>
 
     <div ng-view></div> 
 
     <!-- Container #1 (see wireframe) -->
     
+    <footer class="page-footer blue center-on-small-only">
+        <div class="footer-copyright text-center" id="footer">
+            <div class="container-fluid">
+                © 2016 Copyright: <a href="http://www.next-big-things.com"> Next-Big-Things.com</a>
+            </div>
+        </div>
+    </footer>
     
 </body>
 

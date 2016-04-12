@@ -22,3 +22,53 @@
 #overlay.currently-loading img { 
     display: block; 
 }
+
+#logout {
+    margin-right: 10px;
+}
+
+#outside {
+    display: flex;
+    height: 100%;
+}
+
+/*
+#left {
+    display: flex;
+}
+*/
+
+#inside {
+/*
+    display: flex;
+    justify-content: center;
+*/
+    margin-left: 30px;
+    margin-right: 30px;
+
+}
+
+/*
+#right {
+    display: flex;
+}
+*/
+
+.bandName {
+    font-family: cursive;
+    font-size: 40px;
+}
+
+.bandInfo {
+    font-family: cursive;
+    font-size: 30px;
+}
+
+.bandAboutInfo {
+    font-family: cursive;
+    font-size: 20px;
+}
+
+#footer {
+    background-color: #5264AE;
+}

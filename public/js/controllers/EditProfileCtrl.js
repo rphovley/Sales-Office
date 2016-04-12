@@ -6,7 +6,6 @@ angular.module('EditProfileCtrl', []).controller('EditProfileController', functi
     Parse.serverURL = 'http://nextbigparseserver.azurewebsites.net/parse';
     var currentUser = Parse.User.current();
     console.log(currentUser.get("band_name"));
-
     
     $scope.updateProfileInfo = function(form) {
         if(form.$valid){
@@ -16,11 +15,6 @@ angular.module('EditProfileCtrl', []).controller('EditProfileController', functi
             currentUser.set('record_label', $scope.record_label);
             currentUser.set('influences',   $scope.influences);
             currentUser.set('band_info',    $scope.band_info);
-            
-//            //save the user information
-//            currentUser.save();
-//            
-//            $location.url('/profile');
             
             //save the user information
             currentUser.save(null, {
@@ -33,32 +27,12 @@ angular.module('EditProfileCtrl', []).controller('EditProfileController', functi
                 }
             });
         }
+        
+        //$location.url('/profile');
     }
+    
+    $scope.cancelUpdate = function() {
+        $location.url('/profile');
+    }
+    
 });
-
-//$scope.signup = function(form) {
-//      var username = $scope.username;
-//      var password = $scope.password;
-//      console.log(form);
-//      if(form.$valid){
-//      	  console.log("it's valid");
-//	      Parse.User.signUp(username, password,
-//	       { 'fullName': 'Paul Hovley', //additional attributes go here
-//	       ACL: new Parse.ACL() }, 
-//	       {
-//	        success: function(user) {
-//	          //redirect to home page
-//		      $window.location.reload();
-//	          console.log("Success!");
-//	        },
-//
-//	        error: function(user, error) {
-//	          $(".error").html('Someone with that username already exists').show();
-//	          $("#signupBtn").removeAttr("disabled");
-//	        }
-//	      });
-//		}
-//      $("#signupBtn").attr("disabled", "disabled");
-//
-//      return false;
-//    }
