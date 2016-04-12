@@ -43,7 +43,7 @@ angular.module('LoginCtrl', []).controller('LoginController', function($scope, $
       if(form.$valid){
       	  console.log("it's valid");
 	      Parse.User.signUp(username, password,
-	       { 'fullName': 'Paul Hovley', //additional attributes go here
+	       { //'fullName': 'Paul Hovley', //additional attributes go here
 	       ACL: new Parse.ACL() }, 
 	       {
 	        success: function(user) {

@@ -1,9 +1,13 @@
 'use strict';
-// public/js/controllers/NerdCtrl.js
-/*var message = require('../../app/models/messages');*/
+// public/js/controllers/MessagesCtrl.js
 
 angular.module('MessagesCtrl', []).controller('MessagesController', function($scope, MessagesService) {
-	$scope.parent = 'MESSAGE stuff';
+	//$scope.parent = 'MESSAGE stuff';  This is an example of inheritance from the main controller
+
+	Parse.initialize("test_id");
+    Parse.serverURL = 'http://nextbigparseserver.azurewebsites.net/parse';
+    var currentUser = Parse.User.current();
+    //get list of messages
     MessagesService.get()
     	.success(function(data){
 			console.log('success!');
@@ -14,10 +18,12 @@ angular.module('MessagesCtrl', []).controller('MessagesController', function($sc
 			console.log('Error: ' + data);
 		});
     $scope.message;
+    
+    //add message to list of messages
     $scope.addMessage = function (form){
-    	console.log(form);
     	if(form.$valid){
     		console.log($scope.message);
+    		$scope.message.from = currentUser.get("username");
     		MessagesService.create($scope.message)
     			.success(function(data){
     				$scope.messages = data;
@@ -28,6 +34,7 @@ angular.module('MessagesCtrl', []).controller('MessagesController', function($sc
 	    	});
     	}
     }
+    //remove message from list of messages
     $scope.deleteMessage = function(_id){
     	console.log("delete: " + _id);
     	MessagesService.delete(_id)
@@ -39,22 +46,4 @@ angular.module('MessagesCtrl', []).controller('MessagesController', function($sc
     			console.log('Error: ' + data);
     		});
     }
-    /*$http.get('/api/messages')
-	    .success(function(data){
-	    	$scope.messages = data;
-	    	console.log(data);
-	    })
-	    .error(function(data){
-	    	console.log('Error: ' + data);
-	    });
-
-	$http.post('/api/todos', $scope.formData)
-		.success(function(data){
-			scope.formData = {};
-			scope.messages = data;
-			console.log(data);
-		})
-		.error(function(data){
-	    	console.log('Error: ' + data);
-	    });*/
 });
