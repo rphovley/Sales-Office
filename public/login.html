@@ -5,12 +5,12 @@
     <div class="pagination-centered col-md-6 col-md-offset-3"  ng-controller="LoginController">
         <div id="overlay"><img src="img\spinner.gif" alt="Be patient..." /></div>
         <form name="loginForm" ng-show="isLogin">
-          <h3>Log In</h3>
+          <h3>Login</h3>
           <div class="error" style="display:none"></div>
           <input type="text" id="login-username" ng-model="username" placeholder="Username" />
           <input type="password" id="login-password" ng-model="password" placeholder="Password" />
           <div class="row container">
-                <button id="loginBtn" class="btn btn-default col-md-2" type="submit" ng-click="logIn(loginForm)">Log In</button>
+                <button id="loginBtn" class="btn btn-default col-md-2" type="submit" ng-click="logIn(loginForm)">Login</button>
                 <button class="btn btn-default col-md-2" ng-click="toggleForms()">Register</button>
           </div>
         </form>

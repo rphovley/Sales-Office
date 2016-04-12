@@ -9,12 +9,12 @@ angular.module('LoginCtrl', []).controller('LoginController', function($scope, $
     Parse.serverURL = 'http://nextbigparseserver.azurewebsites.net/parse';
     $scope.username = "";
     $scope.password = "";
+    //when the user presses the "Log in button"
     $scope.logIn = function(form) {
     	$("#overlay").addClass("currently-loading");
       	var username = $scope.username;
       	var password = $scope.password;
       	
-      	console.log("login clicked");
 		if(form.$valid){
 			console.log("valid form");
 			  Parse.User.logIn(username, password, {
@@ -38,6 +38,7 @@ angular.module('LoginCtrl', []).controller('LoginController', function($scope, $
       return false;
     }
 
+    //when a user clicks the register button
     $scope.signup = function(form) {
       var username = $scope.username;
       var password = $scope.password;
@@ -53,7 +54,6 @@ angular.module('LoginCtrl', []).controller('LoginController', function($scope, $
 		      $window.location.reload();
 	          console.log("Success!");
 	        },
-
 	        error: function(user, error) {
 	          $(".error").html('Someone with that username already exists').show();
 	          $("#signupBtn").removeAttr("disabled");
@@ -67,12 +67,10 @@ angular.module('LoginCtrl', []).controller('LoginController', function($scope, $
       return false;
     },
 
+    //toggles between the login and the register form
     $scope.toggleForms = function(){
     	console.log("logged");
     	$scope.isLogin = !$scope.isLogin;
     	return false;
     }
-
-	console.log($scope.isLogin);
-	console.log($scope.LogInView);
 });
