@@ -9,13 +9,13 @@ angular.module('ArtistCtrl', []).controller('ArtistController', function($scope,
     //var Artist = Parse.Object.extend("Artist");
     //var artist = new Artist();
     
-    var delay = function(millis) {
+    /*var delay = function(millis) {
         var promise = new Parse.Promise();
         setTimeout(function() {
             promise.resolve();
         }, millis);
         return promise;
-    };
+    };*/
     
     var refreshID = function(){
        var container = document.getElementById("inside");
@@ -23,17 +23,18 @@ angular.module('ArtistCtrl', []).controller('ArtistController', function($scope,
        container.innerHTML = content;
     }
     
+    //temporary static content
     var aList = [{name: "Lionite", imgURL: "../img/Lionite.png", info: "This is a sweet band called Lionite!! You should listen to them a ton"}, {name: "Jon Bellion", imgURL: "JonBellion.jpg", info: "Jon Bellion is an amazing artist who has written songs for Jason Derulo, Ceelo Green, and Eminem! Listen Now!!"}, {name: "Pearl Jam", imgURL: "../img/PearlJam.png", info: "Pearl Jam is one of the 4 bands to start the grunge movement in Seattle in the early nineties. And they still got it!"}];
-    
     $scope.aList = aList;
     
+    //dynamic list
     var artistList = [];
-    
-    $scope.artists = artistList;
+    $scope.artists = [];
     
     //var isDone = false;
     
     var Artist = Parse.Object.extend("Artist");
+    console.log(Artist);
     var queryObject = new Parse.Query(Artist);
 
     queryObject.find({
@@ -45,7 +46,6 @@ angular.module('ArtistCtrl', []).controller('ArtistController', function($scope,
                                  info: artistResults[i].get("info")};
                 
                 artistList.push(artistObj);
-                
                 //console.log(artistList[i]);
                 
                 $scope.artists = artistList;
@@ -59,10 +59,10 @@ angular.module('ArtistCtrl', []).controller('ArtistController', function($scope,
     
     
     
-    delay(1000).then(function() {
+   /* delay(1000).then(function() {
         console.log($scope.artists[1].name);
         refreshID();
-    });
+    });*/
     
 //    $scope.UpdateArtist = function() {
 //        var Artist = Parse.Object.extend("Artist");
