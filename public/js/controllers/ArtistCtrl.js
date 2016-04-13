@@ -46,9 +46,10 @@ angular.module('ArtistCtrl', []).controller('ArtistController', function($scope,
                                  info: artistResults[i].get("info")};
                 
                 artistList.push(artistObj);
-                //console.log(artistList[i]);
-                
-                $scope.artists = artistList;
+                $scope.$apply(function () {  // you were right, something weird was going on.  This fixes it.
+                    $scope.artists = artistList;
+                });
+                console.log(artistList);
                 console.log($scope.artists[i].name);
             }
         },
