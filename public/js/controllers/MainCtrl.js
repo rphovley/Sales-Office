@@ -17,4 +17,5 @@ angular.module('MainCtrl', []).controller('MainController', function($scope, $lo
     	Parse.User.logOut();  
     	$window.location.reload();
     }
+    
 });

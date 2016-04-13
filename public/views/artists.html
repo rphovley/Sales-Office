@@ -1,26 +1,48 @@
 <div id="outside" ng-controller="ArtistController">
     <div class="row" id="inside">
+        <h5 class="text-center">Check back here weekly to see if any new artists have been added! We'll spotlight
+                                our favorites so you know who the next big things are!</h5>
 
-    <!--    ng-repeat="artist in "-->
-        <div class="col-md-3">
+<!--
+        <div class="col-md-3" ng-repeat="artist in artists">
             <div class="card hoverable">
                 <div class="card-image">
                     <div class="view overlay hm-white-slight z-depth-1">
-                        <img src="../img/Lionite.png" class="img-responsive" alt="">
+                        <img ng-src="{{artist.imgUrl}}" class="img-responsive" alt="">
                         <a href="#">
                             <div class="mask waves-effect"></div>
                         </a>
                     </div>
                 </div>
                 <div class="card-content">
-                    <h4>{{band_name}}</h4>
-                    <p id="cardInfo">{{band_info}}</p>
+                    <h4>{{artist.name}}</h4>
+                    <p id="cardInfo">{{artist.info}}</p>
                 </div>
                 <div class="card-btn text-center">
-                    <a href="#" class="btn btn-default btn-md waves-effect waves-light">See More</a>
+                    <a href="#" ng-click="" class="btn btn-default btn-md waves-effect waves-light">See More</a>
                 </div>
             </div>
         </div>
-    
+-->
+        <div class="col-md-4" ng-repeat="a in aList">
+            <div class="card hoverable">
+                <div class="card-image">
+                    <div class="view overlay hm-white-slight z-depth-1">
+                        <img ng-src="../img/{{a.imgURL}}" class="img-responsive">
+                        <a href="#">
+                            <div class="mask waves-effect"></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h4>{{a.name}}</h4>
+                    <p id="cardInfo">{{a.info}}</p>
+                </div>
+                <div class="card-btn text-center">
+                    <a href="#" ng-click="" class="btn btn-default btn-md waves-effect waves-light">See More</a>
+                </div>
+            </div>
+        </div>
+        
     </div>
 </div>
