@@ -39,7 +39,7 @@ angular.module('ArtistCtrl', []).controller('ArtistController', function($scope,
     queryObject.find({
         success: function (artistResults) {
             for (var i = 0; i < artistResults.length; i++) {
-                // Iteratoration for class object.
+                // Iteration for class object.
                 
                 var artistObj = {name: artistResults[i].get("name"), imgURL: artistResults[i].get("imgURL"), 
                                  info: artistResults[i].get("info")};
@@ -56,8 +56,6 @@ angular.module('ArtistCtrl', []).controller('ArtistController', function($scope,
             alert("Error: " + error.code + " " + error.message);
         }
     });   
-    
-    
     
     delay(1000).then(function() {
         console.log($scope.artists[1].name);

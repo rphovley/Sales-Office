@@ -1,28 +1,27 @@
 <div class="jumbotron text-center pagination-centered col-md-6 col-md-offset-3" ng-controller="MessagesController">
     <h2>Message Board</h2>
     <div class="container" ng-repeat="message in messages">
-	    <div class="well">
-		    <div>
-	            <!-- <input type="checkbox" ng-click="deleteMessage(message._id)">  -->
+        <div class="well">
+            <div>
+                <!-- <input type="checkbox" ng-click="deleteMessage(message._id)">  -->
                 {{message.content}}
-	        </div>
+            </div>
             <a style="float:right" ng-click="deleteMessage(message._id)">&#10006;</a>
             <div>From: {{message.from}}</div>
-	    </div>
+        </div>
     </div>
     <div>
-    	<div class="container">
-    		<h2>Create New Message</h2>
+        <div class="container">
+            <h2>Create New Message</h2>
 
-    		<form name="form">
-    			<fieldset>
-    				<label for="content">Message</label>
-    				<input id="content" type="text" ng-model="message.content" placeholder="Enter Message Here"/>
-    			</fieldset>
-    			<br/>
-				<button type="submit" class="btn btn-default" ng-click="addMessage(form)">Send</button>
-    		</form>
-    	</div>
+            <form name="form">
+                <fieldset>
+                    <label for="content">Message</label>
+                    <input id="content" type="text" ng-model="message.content" placeholder="Enter Message Here"/>
+                </fieldset>
+                <br/>
+                <button type="submit" class="btn btn-default" ng-click="addMessage(form)">Send</button>
+            </form>
+        </div>
     </div>
-
-</div>
+</div>    
