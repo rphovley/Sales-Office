@@ -1,40 +1,23 @@
 'use strict';
 // public/js/controllers/ArtistCtrl.js
 
-angular.module('ArtistCtrl', []).controller('ArtistController', function($scope, $location, $window) {
+angular.module('ArtistCtrl', []).controller('ArtistController', function($scope, $location) {
     Parse.initialize("test_id");
     Parse.serverURL = 'http://nextbigparseserver.azurewebsites.net/parse';
-    var currentUser = Parse.User.current();
     
-    //var Artist = Parse.Object.extend("Artist");
-    //var artist = new Artist();
     
-    /*var delay = function(millis) {
-        var promise = new Parse.Promise();
-        setTimeout(function() {
-            promise.resolve();
-        }, millis);
-        return promise;
-    };*/
-    
-    var refreshID = function(){
-       var container = document.getElementById("inside");
-       var content = container.innerHTML;
-       container.innerHTML = content;
+    $scope.search = function(event) {
+        var keyValue = String.fromCharCode(event.keyCode);
+        console.log(keyValue);
     }
     
-    //temporary static content
-    var aList = [{name: "Lionite", imgURL: "../img/Lionite.png", info: "This is a sweet band called Lionite!! You should listen to them a ton"}, {name: "Jon Bellion", imgURL: "JonBellion.jpg", info: "Jon Bellion is an amazing artist who has written songs for Jason Derulo, Ceelo Green, and Eminem! Listen Now!!"}, {name: "Pearl Jam", imgURL: "../img/PearlJam.png", info: "Pearl Jam is one of the 4 bands to start the grunge movement in Seattle in the early nineties. And they still got it!"}];
-    $scope.aList = aList;
     
     //dynamic list
     var artistList = [];
     $scope.artists = [];
     
-    //var isDone = false;
-    
     var Artist = Parse.Object.extend("Artist");
-    console.log(Artist);
+    //console.log(Artist);
     var queryObject = new Parse.Query(Artist);
 
     queryObject.find({
@@ -46,10 +29,12 @@ angular.module('ArtistCtrl', []).controller('ArtistController', function($scope,
                                  info: artistResults[i].get("info")};
                 
                 artistList.push(artistObj);
-                $scope.$apply(function () {  // you were right, something weird was going on.  This fixes it.
+                
+                $scope.$apply(function () {
                     $scope.artists = artistList;
                 });
-                console.log(artistList);
+                
+                //console.log(artistList);
                 console.log($scope.artists[i].name);
             }
         },
@@ -57,14 +42,7 @@ angular.module('ArtistCtrl', []).controller('ArtistController', function($scope,
             alert("Error: " + error.code + " " + error.message);
         }
     });   
-    
-    
-    
-   /* delay(1000).then(function() {
-        console.log($scope.artists[1].name);
-        refreshID();
-    });*/
-    
+
 //    $scope.UpdateArtist = function() {
 //        var Artist = Parse.Object.extend("Artist");
 //        var query = new Parse.Query(Artist);
@@ -92,7 +70,7 @@ angular.module('ArtistCtrl', []).controller('ArtistController', function($scope,
 //
 //        artist.set("name", "Pearl Jam");
 //        artist.set("imgURL", "../img/PearlJam.png")
-//        artist.set("info", "Pearl Jam was one of the big four of the Seattle grunce music scene. Check out their rock!!!!");
+//        artist.set("info", "Pearl Jam was one of the big four of the Seattle grunce music scene.");
 //
 //        artist.save(null, {
 //          success: function(artist) {

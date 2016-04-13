@@ -1,21 +1,22 @@
 <div id="outside" ng-controller="ArtistController">
     <div id="inside">
-        
-        <div  id="artistSearch" class="waves-effect waves-light col-md-6 col-md-offset-3" role="search">
-            <input type="text" placeholder="Search Artists">
-        </div>
-        
-        <br><br><br><br>
 
         <h5 class="text-center">Check back here weekly to see if any new artists have been added! We'll spotlight
                                 our favorites so you know who the next big things are!</h5>
+        
         <br>
-<!--
-        <div class="col-md-3" ng-repeat="artist in artists">
+        
+        <div  id="artistSearch" class="waves-effect waves-light col-md-6 col-md-offset-3" role="search">
+            <input type="text" placeholder="Search Artists" ng-keypress="search($event)">
+        </div>
+        
+        <br><br><br><br><br>
+        
+        <div id="artistCard" class="col-md-4" ng-repeat="artist in artists">
             <div class="card hoverable">
                 <div class="card-image">
                     <div class="view overlay hm-white-slight z-depth-1">
-                        <img ng-src="{{artist.imgUrl}}" class="img-responsive" alt="">
+                        <img ng-src="{{artist.imgURL}}" class="img-responsive" alt="">
                         <a href="#">
                             <div class="mask waves-effect"></div>
                         </a>
@@ -30,8 +31,9 @@
                 </div>
             </div>
         </div>
--->
-        <div class="col-md-4" ng-repeat="a in artists">
+        
+<!--
+        <div class="col-md-4" ng-repeat="a in aList">
             <div class="card hoverable">
                 <div class="card-image">
                     <div class="view overlay hm-white-slight z-depth-1">
@@ -50,6 +52,7 @@
                 </div>
             </div>
         </div>
+-->
         
     </div>
 </div>
