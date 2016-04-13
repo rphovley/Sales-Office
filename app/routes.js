@@ -12,10 +12,9 @@ var gateway = braintree.connect({
 
 		// server routes ===========================================================
 		// handle things like api calls	
+		//get messages from database database
 		app.get('/api/messages', function(req, res){
 			console.log("api/messages and get");
-			/*console.log(req);
-			console.log(res);*/
 			message.find(function(err, messages){
 				if(err){
 					res.send(err);
@@ -26,12 +25,16 @@ var gateway = braintree.connect({
 				}	
 			});
 		});
+		//create new message in database
 		app.post('/api/messages', function(req, res){
 			console.log("api/messages and post");
 			console.log(req.body.content);
+			console.log(req.body.from);
+			console.log(req.body);
 
 			message.create({
-				content : req.body.content
+				content : req.body.content,
+				from : req.body.from
 			}, function(err, messages){
 				if (err){
 					res.send(err);
@@ -50,7 +53,7 @@ var gateway = braintree.connect({
 
 			});
 		});
-
+		//delete message from database
 		app.delete('/api/messages/:message_id', function(req, res){
 			message.remove({
 				_id : req.params.message_id
