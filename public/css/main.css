@@ -52,6 +52,12 @@
 }
 */
 
+#artistSearch {
+    background-color: #222;
+    border-radius: 5px;
+    color: #D1D1D1;
+}
+
 .bandName {
     font-family: cursive;
     font-size: 40px;
