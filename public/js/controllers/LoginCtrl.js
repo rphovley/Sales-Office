@@ -41,16 +41,24 @@ angular.module('LoginCtrl', []).controller('LoginController', function($scope, $
     $("#overlay").addClass("currently-loading");
       var username = $scope.username;
       var password = $scope.password;
-      console.log(form);
       if(form.$valid){
-      	  console.log("it's valid");
 	      Parse.User.signUp(username, password,
 	       { //'fullName': 'Paul Hovley', //additional attributes go here
 	       ACL: new Parse.ACL() }, 
 	       {
 	        success: function(user) {
 	          //redirect to home page
-		      $window.location.reload();
+	          var extendedUser = new User();
+	          extendedUser.set(User.PARENT_ID, user.id);
+	          extendedUser.save(null, {
+	          	success: function(user){
+	          		console.log("Success! Extended!");
+	          	},
+	          	error: function(user, error){
+	          		console.log(error.message);
+	          	}
+	          });
+		      
 	          console.log("Success!");
 	        },
 	        error: function(user, error) {
