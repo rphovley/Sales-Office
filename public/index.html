@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <base href="/">
 
-    <title>Starter Node and Angular</title>
+    <title>Sales Offices</title>
 
 
     <!-- MDB -->
@@ -16,54 +16,44 @@
 
     <!-- main css -->
     <link rel="stylesheet" href="css/main.css">
+    
+    <!-- ANGULAR -->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+    <script src="libs/parse.js"></script>
+
     <!-- Bootstrap core CSS -->
     <link href="libs/MDB_3.3.3/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="libs/MDB_3.3.3/css/mdb.css" rel="stylesheet">
 
-    <!-- ANGULAR -->
-    <script src="bower_components/angular/angular.min.js"></script>
-    <script src="bower_components/angular-route/angular-route.min.js"></script>
-
-
-    <script src="libs/parse.js"></script>
-
 
     <!-- ANGULAR CUSTOM -->
-
     <script src="js/controllers/HomeCtrl.js"></script>
     <script src="js/controllers/MainCtrl.js"></script>
     <script src="js/controllers/LoginCtrl.js"></script>
-    <script src="js/controllers/MessagesCtrl.js"></script>
-    <script src="js/controllers/PaymentsCtrl.js"></script>
     <script src="js/controllers/ProfileCtrl.js"></script>
-    <script src="js/controllers/EditProfileCtrl.js"></script>
-    <script src="js/controllers/ArtistCtrl.js"></script>
-    <script src="js/services/MessagesService.js"></script>
-    <script src="js/services/PaymentsService.js"></script>
+    <script src="js/controllers/UserCtrl.js"></script>
+    <script src="js/controllers/UserManagementCtrl.js"></script>
+    <script src="js/services/UserService.js"></script>
     <script src="js/appRoutes.js"></script>
     <script src="js/app.js"></script>
 
 </head>
-<body ng-app="sampleApp" ng-controller="MainController">
+<body ng-app="mainApp" ng-controller="MainController">
 
     <!-- HEADER -->
     <nav class="navbar navbar-inverse" ng-show="authorized">
         <div class="navbar-header">
-            <a class="navbar-brand" href="/">Next Big Things</a>
+            <a class="navbar-brand" href="/">Sales Office Tool</a>
         </div>
         <!-- LINK TO OUR PAGES. ANGULAR HANDLES THE ROUTING HERE -->
         <ul class="nav navbar-nav">
-            <li><a href="/messages">Messages</a></li>
-        </ul>
-        <ul class="nav navbar-nav">
-            <li><a href="/payment">Payments</a></li>
-        </ul>
-         <ul class="nav navbar-nav">
             <li><a href="/profile">Profile</a></li>
         </ul>
         <ul class="nav navbar-nav">
-            <li><a href="/artists">Artists</a></li>
+            <li><a href="/users">Users</a></li>
         </ul>
         <a class="navbar-brand navbar-right" style="margin-right:10px" ng-click="logout()">Logout</a>
     </nav>
@@ -75,7 +65,7 @@
     <footer class="page-footer center-on-small-only">
         <div class="footer-copyright text-center" id="footer">
             <div class="container-fluid">
-                © 2016 Copyright: <a href="http://www.next-big-things.com">Next-Big-Things.com</a>
+                © 2016 Copyright: <a href="http://www.sunedison.com">SunEdison</a>
             </div>
         </div>
     </footer>
@@ -84,8 +74,6 @@
 
 <script src="bower_components/braintree-web/dist/braintree.js"></script>
 <script type="text/javascript" src="libs/MDB_3.3.3/js/jquery.min.js"></script>
-<!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="libs/MDB_3.3.3/js/bootstrap.min.js"></script>
-<!-- Material Design Bootstrap -->
 <script type="text/javascript" src="libs/MDB_3.3.3/js/mdb.js"></script>
+<script type="text/javascript" src="libs/MDB_3.3.3/js/bootstrap.min.js"></script>
 </html>

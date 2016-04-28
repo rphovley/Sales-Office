@@ -1,11 +1,8 @@
 'use strict';
 // public/js/controllers/HomeCtrl.js
-angular.module('HomeCtrl', []).controller('HomeController', function($scope) {
+angular.module('HomeCtrl', []).controller('HomeController', function($scope, currentUser) {
 
     $scope.tagline = 'To the moon and back!';   
     $scope.parent = 'home stuff';
-    Parse.initialize("test_id");
-    Parse.serverURL = 'http://nextbigparseserver.azurewebsites.net/parse';
-    var currentUser = Parse.User.current();
-    console.log(currentUser.get("fullName"));
+    console.log(currentUser);
 });

@@ -1,18 +1,26 @@
 <div id="outside" ng-controller="ProfileController">
-<!--    <div id="left"></div>-->
+    <div id="overlay"><img src="img\spinner.gif" alt="Be patient..." /></div>
     <div class="row" id="inside">
-        <h2><strong class="bandName">Band Name:</strong> {{band_name}}</h2>
-        <hr>
-        <h4><strong class="bandInfo">Home City:</strong> {{home_city}}</h4>
-        <br>
-        <h4><strong class="bandInfo">Record Label:</strong> {{record_label}}</h4>
-        <br>
-        <h4><strong class="bandInfo">Influences:</strong> {{influences}}</h4>
-        <br>
-        <p><strong class="bandAboutInfo">Band Info:</strong> {{band_info}}</p>
-        
-        <br>
-        <a href id="editProfileBtn" class="btn btn-default" ng-click="editProfileRedirect()">Edit Profile</a>
+        <form name="updateProfileForm" class="col-md-12">
+            <div class="row">
+                <div class="input-field col-md-6">
+                  <input type="text" id="first_name" ng-model="first_name" class="validate">
+                  <label for="first_name" id="first_name_lbl" >First Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col-md-6">
+                  <input type="text" id="last_name" ng-model="last_name" class="validate">
+                  <label for="last_name" id="last_name_lbl">Last Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col-md-6">
+                  <input placeholder="Role" type="text" id="role" ng-model="role" class="validate" disabled>
+                  <label for="role" id="role_lbl">Role</label>
+                </div>
+            </div>
+            <button id="updateProfileBtn" class="btn btn-default" type="submit" ng-click="updateProfileInfo(updateProfileForm)">Update Profile</button>
+        </form>
     </div>
-<!--    <div id="right"></div>-->
 </div>

@@ -1,0 +1,95 @@
+<!-- public/index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <base href="/">
+
+    <title>Sales Offices</title>
+
+
+    <!-- MDB -->
+    <!-- Material Design Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <!-- main css -->
+    <link rel="stylesheet" href="css/main.css">
+    
+
+    <!-- ANGULAR -->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="libs/parse.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link href="libs/MDB_3.3.3/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="libs/MDB_3.3.3/css/mdb.css" rel="stylesheet">
+
+</head>
+<body>
+
+    <!-- HEADER -->
+    <nav class="navbar navbar-inverse">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Sales Office Tool</a>
+        </div>
+        <!-- LINK TO OUR PAGES. ANGULAR HANDLES THE ROUTING HERE -->
+         <ul class="nav navbar-nav">
+            <li><a href="/profile">Profile</a></li>
+        </ul>
+        <a class="navbar-brand navbar-right" style="margin-right:10px">Logout</a>
+    </nav>
+
+    <div class="row">
+        <div id="outside">
+            <div id="overlay"><img src="img\spinner.gif" alt="Be patient..." /></div>
+            <div class="row" id="inside">
+                <form name="updateProfileForm" class="col-md-12">
+                    <div class="row">
+                        <div class="input-field col-md-6">
+                          <input type="text" id="first_name" class="validate" placeholder="First Name">
+                          <label for="first_name" id="first_name_lbl" >First Name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col-md-6">
+                          <input type="text" id="last_name" class="validate">
+                          <label for="last_name" id="last_name_lbl">Last Name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col-md-6">
+                          <input placeholder="Role" type="text" id="role" class="validate" disabled>
+                          <label for="role">Role</label>
+                        </div>
+                    </div>
+                    <button id="updateProfileBtn" class="btn btn-default" type="submit">Update Profile</button>
+                    <button id="cancelBtn" class="btn btn-default" type="submit">Cancel</button>
+                </form>
+            </div>
+        </div>
+
+    </div> 
+
+    <!-- Container #1 (see wireframe) -->
+    
+    <footer class="page-footer center-on-small-only">
+        <div class="footer-copyright text-center" id="footer">
+            <div class="container-fluid">
+                © 2016 Copyright: <a href="http://www.sunedison.com">SunEdison</a>
+            </div>
+        </div>
+    </footer>
+    
+</body>
+
+<script src="bower_components/braintree-web/dist/braintree.js"></script>
+<script type="text/javascript" src="libs/MDB_3.3.3/js/jquery.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="libs/MDB_3.3.3/js/bootstrap.min.js"></script>
+<!-- Material Design Bootstrap -->
+<script type="text/javascript" src="libs/MDB_3.3.3/js/mdb.js"></script>
+</html>

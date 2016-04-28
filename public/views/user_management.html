@@ -1,0 +1,26 @@
+<div id="outside" ng-controller="UserManagementController">
+    <div id="overlay"><img src="img\spinner.gif" alt="Be patient..." /></div>
+    <div class="row" id="inside">
+        <form name="form" class="col-md-12">
+            <div class="row">
+                <div class="input-field col-md-6">
+                  <input type="text" id="first_name" ng-model="first_name" class="validate">
+                  <label for="first_name" id="first_name_lbl" >First Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col-md-6">
+                  <input type="text" id="last_name" ng-model="last_name" class="validate">
+                  <label for="last_name" id="last_name_lbl">Last Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col-md-6">
+                  <input placeholder="Role" type="text" id="role" ng-model="role" class="validate" disabled>
+                  <label for="role" id="role_lbl">Role</label>
+                </div>
+            </div>
+            <button id="updateProfileBtn" class="btn btn-default" type="submit" ng-click="updateUser(form)">Update Profile</button>
+        </form>
+    </div>
+</div>

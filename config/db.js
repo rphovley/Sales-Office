@@ -1,5 +1,5 @@
 'use strict';
 
 module.exports = {
-        url : 'mongodb://MongoLab-x4:VUd4W3gl2oIIk5gdOrPLGKP80YF9a5zfrtbnu4NoAsU-@ds064278.mlab.com:64278/MongoLab-x4'
+        url : 'mongodb://rphovley:Megarice10@ds021761.mlab.com:21761/sales_office_parse_db'
     }

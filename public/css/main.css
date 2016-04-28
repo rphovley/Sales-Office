@@ -58,19 +58,16 @@
     color: #D1D1D1;
 }
 
-.bandName {
-    font-family: cursive;
-    font-size: 40px;
-}
-
-.bandInfo {
-    font-family: cursive;
+.userName {
     font-size: 30px;
 }
 
-.bandAboutInfo {
-    font-family: cursive;
-    font-size: 20px;
+.userInfo {
+    font-size: 30px;
+}
+
+.userAboutInfo {
+    font-size: 30px;
 }
 
 #footer {

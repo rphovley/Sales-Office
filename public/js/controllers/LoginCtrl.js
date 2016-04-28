@@ -1,12 +1,9 @@
 
 'use strict';
 // public/js/controllers/MainCtrl.js
-angular.module('LoginCtrl', []).controller('LoginController', function($scope, $location, $window) {
+angular.module('LoginCtrl', []).controller('LoginController', function($scope, $location, $window, User) {
 
 	$scope.isLogin = true;
-	console.log($scope.isLogin);
-	Parse.initialize("test_id");
-    Parse.serverURL = 'http://nextbigparseserver.azurewebsites.net/parse';
     $scope.username = "";
     $scope.password = "";
     //when the user presses the "Log in button"
@@ -29,6 +26,7 @@ angular.module('LoginCtrl', []).controller('LoginController', function($scope, $
 			      $(".error").html("Invalid username or password. Please try again.").show();
 			      $("#loginBtn").removeAttr("disabled");
 			      $("#signupBtn").removeAttr("disabled");
+			      $("#overlay").removeClass("currently-loading");
 			    }
 			  });
 		}	
@@ -40,6 +38,7 @@ angular.module('LoginCtrl', []).controller('LoginController', function($scope, $
 
     //when a user clicks the register button
     $scope.signup = function(form) {
+    $("#overlay").addClass("currently-loading");
       var username = $scope.username;
       var password = $scope.password;
       console.log(form);
@@ -58,6 +57,7 @@ angular.module('LoginCtrl', []).controller('LoginController', function($scope, $
 	          $(".error").html('Someone with that username already exists').show();
 	          $("#signupBtn").removeAttr("disabled");
 	          $("#loginBtn").removeAttr("disabled");
+	          $("#overlay").removeClass("currently-loading");
 	        }
 	      });
 		}
