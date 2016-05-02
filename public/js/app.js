@@ -1,6 +1,7 @@
 'use strict';
-var mainApp = angular.module('mainApp', ['ngRoute','ngCookies', 'appRoutes', 'MainCtrl','LoginCtrl', 
-	'HomeCtrl', 'ProfileCtrl', 'UserCtrl', 'UserService', 'UserManagementCtrl']);
+var mainApp = angular.module('mainApp', ['ngRoute','ngCookies','ngMessages', 'appRoutes', 'MainCtrl','LoginCtrl', 
+	'HomeCtrl', 'ProfileCtrl', 'UserCtrl','OfficeCtrl', 'officeCard', 'OfficeService', 'UserService', 'UserManagementCtrl', 'compareTo']);
+
 
 /*Parse Object Injection*/
 Parse.initialize("test_id");
@@ -12,30 +13,31 @@ var ExtendedUser = new Parse.Object.extend("ExtendedUser", {
 	getFullName : function(){
 		return this.get("first_name") + " " + this.get("last_name");
 	},
+	isAdmin : function(){
+		console.log("CORPORATE ROLE: " + this.get(ExtendedUser.CORPORATE_ROLE));
+		console.log(this.get(ExtendedUser.CORPORATE_ROLE) === 'Admin');
+		return this.get(ExtendedUser.CORPORATE_ROLE) === 'Admin';
+	},
 	initialize: function(attrs, options){
 		this.user_id = "",
-		this.first_name = ""
+		this.first_name = "",
+		this.last_name = "",
+		this.role = "";
 	}
-}, {_ID            : "id",
+}, {CLASS_NAME     : "ExtendedUser",
+	USERNAME       : "username",
+	PASSWORD       : "password",
+	EMAIL          : "email",
+	_ID            : "id",
 	FIRST_NAME     : "first_name",
 	LAST_NAME      : "last_name",
 	CORPORATE_ROLE : "corporate_role",
 	CORPORATE_ROLES: ['Admin', 'Manager','Sales Rep'],
-	PARENT_ID      : "parent_id"});
+	PARSE_USER    : "parent"});
 
-/*var User = Parse.User.extend({
-	getFullName : function(){
-		return this.get("first_name") + " " + this.get("last_name");
-	},
-}, {_ID            : "id",
-	FIRST_NAME     : "first_name",
-	LAST_NAME      : "last_name",
-	CORPORATE_ROLE : "corporate_role",
-	CORPORATE_ROLES: ['Admin', 'Manager','Sales Rep']}); //User to inherit from Parse User class   */   
-
-mainApp.value("User", ExtendedUser);
-
-var currentUser = Parse.User.current();
-mainApp.value("currentUser", currentUser);
+mainApp.value("ExtendedUser", ExtendedUser);
+console.log(ExtendedUser);
+var currentParseUser = Parse.User.current();
+mainApp.value("currentParseUser", currentParseUser);
 
 

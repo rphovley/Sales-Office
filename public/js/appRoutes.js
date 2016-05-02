@@ -21,6 +21,12 @@
             .when('/user_management',{
                 templateUrl: 'views/user_management.html'
             })
+            .when('/offices',{
+                templateUrl: 'views/offices.html'
+            })
+            .when('/office_management',{
+                templateUrl: 'views/office_management.html'
+            })
         
         
     }else{ //if the user is not logged in

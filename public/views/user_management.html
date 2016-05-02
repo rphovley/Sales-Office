@@ -14,11 +14,12 @@
                   <label for="last_name" id="last_name_lbl">Last Name</label>
                 </div>
             </div>
-            <div class="row">
-                <div class="input-field col-md-6">
-                  <input placeholder="Role" type="text" id="role" ng-model="role" class="validate" disabled>
-                  <label for="role" id="role_lbl">Role</label>
-                </div>
+            <div class="row" >
+              <div class="col-md-6">
+                <label for="role" id="role_lbl">Role</label>
+                <select class="form-control" ng-model="role" id="role" ng-options="role for role in roles" disabled>
+                </select>
+              </div>
             </div>
             <button id="updateProfileBtn" class="btn btn-default" type="submit" ng-click="updateUser(form)">Update Profile</button>
         </form>

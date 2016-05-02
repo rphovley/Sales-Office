@@ -10,32 +10,39 @@
         </div>
         
         <br><br><br><br><br>
-        
-        <div id="userCard" class="col-md-4 col-xs-4" ng-repeat="user in users">
-            <div class="card hoverable">
-                <div class="card-image">
-                    <div class="view overlay hm-white-slight z-depth-1">
-                        <img ng-src="{{user.imgURL}}" class="img-responsive" alt="">
-                        <a href="#">
-                            <div class="mask waves-effect"></div>
-                        </a>
+        <div id="overlay"><img src="img\spinner.gif" alt="Be patient..." /></div>
+        <div class="row">
+            <div id="userCard" class="col-md-4 col-xs-4" ng-repeat="user in users">
+                <div class="card hoverable">
+                    <div class="card-image">
+                        <div class="view overlay hm-white-slight z-depth-1">
+                            <img ng-src="{{user.imgURL}}" class="img-responsive" alt="">
+                            <a href="#">
+                                <div class="mask waves-effect"></div>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="card-content">
-                    <h4>{{user.getFullName()}}</h4>
-                    <p id="cardInfo">{{user.get(Users.CORPORATE_ROLE)}}</p>
-                </div>
-                <div class="card-btn text-center">
-                    <a href="/user_management" ng-click="editUser(user)" class="btn btn-default btn-md waves-effect waves-light">Edit</a>
+                    <div class="card-content">
+                        <h4>{{user.getFullName()}}</h4>
+                        <p id="cardInfo">{{user.get(User.CORPORATE_ROLE)}}</p>
+                    </div>
+                    <div class="card-btn text-center">
+                        <a href="/profile" ng-click="editUser(user)" class="btn btn-default btn-md waves-effect waves-light">Edit</a>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="card-btn col-xs-1">
+                <a href="/profile" ng-click="addUser()" class="btn btn-danger btn-md waves-effect waves-light">Add</a>
+            </div>
+            <div class="card-btn col-xs-1">
+                <a href="#" ng-click="" class="btn btn-default btn-md waves-effect waves-light">Next</a>
+            </div>
+        </div>
         
-        <div style="float:right" class="card-btn text-center">
-            <a href="#" ng-click="" class="btn btn-default btn-md waves-effect waves-light">Next</a>
-        </div>
-        <div style="float:right" class="card-btn text-center">
-            <a href="#" ng-click="" class="btn btn-danger btn-md waves-effect waves-light">Add</a>
-        </div>
+        
     </div>
+
+    
 </div>

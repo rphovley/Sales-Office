@@ -1,7 +1,7 @@
 'use strict';
 // public/js/controllers/UserCtrl.js
 
-angular.module('UserCtrl', []).controller('UserController', function($scope, $location, User, UserService) {
+angular.module('UserCtrl', []).controller('UserController', function($scope, $location, ExtendedUser, UserService) {
 
     $scope.search = function(event) {
         var keyValue = String.fromCharCode(event.keyCode);
@@ -11,34 +11,35 @@ angular.module('UserCtrl', []).controller('UserController', function($scope, $lo
     //dynamic list
     var userList = [];
     $scope.users = [];
-    
-    var Users = Parse.User.extend();
-    $scope.Users = Users;
-    var queryObject = new Parse.Query(Users);
-
+    $scope.User = ExtendedUser;
+    var queryObject = new Parse.Query(ExtendedUser.CLASS_NAME);
+    $("#overlay").addClass("currently-loading");
     queryObject.find({
+        
         success: function (userResults) {
             console.log(userResults.length);
             for (var i = 0; i < userResults.length; i++) {
                 // Iteratoration for class object.
                 var userObj = userResults[i];
-                console.log(userObj.get(Users.FIRST_NAME));
                 userList.push(userObj);
-                console.log(userList);
-                console.log($scope.users);
             }
             $scope.$apply(function () {
-                console.log("APPLY");
                 $scope.users = userList;
+                $("#overlay").removeClass("currently-loading");
             });
         },
         error: function (error) {
             alert("Error: " + error.code + " " + error.message);
+            $("#overlay").addClass("currently-loading");
         }
     });   
 
     $scope.editUser = function(user){
         UserService.set(user);
+        UserService.setAddEdit(UserService.IS_EDIT);
+    }
+    $scope.addUser = function(){
+        UserService.setAddEdit(UserService.IS_ADD);
     }
     
 });

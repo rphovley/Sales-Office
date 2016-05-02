@@ -8,6 +8,7 @@
     "angular": "latest",
     "angular-route": "latest",
     "angular-cookies": "latest",
+    "angular-messages": "latest",
     "parse": "^1.8.1",
     "braintree-web": "^2.21.0"
   },

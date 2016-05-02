@@ -1,7 +1,7 @@
 
 'use strict';
 // public/js/controllers/MainCtrl.js
-angular.module('LoginCtrl', []).controller('LoginController', function($scope, $location, $window, User) {
+angular.module('LoginCtrl', []).controller('LoginController', function($scope, $location, $window, ExtendedUser, UserService) {
 
 	$scope.isLogin = true;
     $scope.username = "";
@@ -16,10 +16,16 @@ angular.module('LoginCtrl', []).controller('LoginController', function($scope, $
 			console.log("valid form");
 			  Parse.User.logIn(username, password, {
 			    success: function(user) {
-			      //redirect to home page
-			      console.log("logged in!");
-			      $("#overlay").removeClass("currently-loading");
-			      $window.location.reload();
+					$("#overlay").removeClass("currently-loading");
+					var query = new Parse.Query(ExtendedUser.CLASS_NAME);
+					query.equalTo(ExtendedUser.PARSE_USER, user);
+					query.find({
+						success: function(queriedUser) {
+							UserService.setCurrentExtUser(queriedUser[0]);
+							$window.location.reload();
+					}
+					});
+			      
 			    },
 
 			    error: function(user, error) {
@@ -41,24 +47,26 @@ angular.module('LoginCtrl', []).controller('LoginController', function($scope, $
     $("#overlay").addClass("currently-loading");
       var username = $scope.username;
       var password = $scope.password;
+
       if(form.$valid){
 	      Parse.User.signUp(username, password,
-	       { //'fullName': 'Paul Hovley', //additional attributes go here
+	       { 'email': $scope.email, //additional attributes go here
 	       ACL: new Parse.ACL() }, 
 	       {
 	        success: function(user) {
 	          //redirect to home page
-	          var extendedUser = new User();
-	          extendedUser.set(User.PARENT_ID, user.id);
+	          var extendedUser = new ExtendedUser();
+	          extendedUser.set(ExtendedUser.PARSE_USER, user);
 	          extendedUser.save(null, {
 	          	success: function(user){
 	          		console.log("Success! Extended!");
+	          		UserService.setCurrentExtUser(user);
+	          		$window.location.reload();
 	          	},
 	          	error: function(user, error){
 	          		console.log(error.message);
 	          	}
 	          });
-		      
 	          console.log("Success!");
 	        },
 	        error: function(user, error) {

@@ -21,6 +21,7 @@
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.min.js"></script>
     <script src="libs/parse.js"></script>
 
     <!-- Bootstrap core CSS -->
@@ -33,10 +34,14 @@
     <script src="js/controllers/HomeCtrl.js"></script>
     <script src="js/controllers/MainCtrl.js"></script>
     <script src="js/controllers/LoginCtrl.js"></script>
+    <script src="js/controllers/OfficeCtrl.js"></script>
     <script src="js/controllers/ProfileCtrl.js"></script>
     <script src="js/controllers/UserCtrl.js"></script>
     <script src="js/controllers/UserManagementCtrl.js"></script>
     <script src="js/services/UserService.js"></script>
+    <script src="js/services/OfficeService.js"></script>
+    <script src="js/directives/compareTo.js"></script>
+    <script src="js/directives/officeCard.js"></script>
     <script src="js/appRoutes.js"></script>
     <script src="js/app.js"></script>
 
@@ -50,10 +55,13 @@
         </div>
         <!-- LINK TO OUR PAGES. ANGULAR HANDLES THE ROUTING HERE -->
         <ul class="nav navbar-nav">
-            <li><a href="/profile">Profile</a></li>
+            <li><a ng-click="editProfile()">Profile</a></li>
         </ul>
         <ul class="nav navbar-nav">
             <li><a href="/users">Users</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+            <li><a href="/offices">Offices</a></li>
         </ul>
         <a class="navbar-brand navbar-right" style="margin-right:10px" ng-click="logout()">Logout</a>
     </nav>
