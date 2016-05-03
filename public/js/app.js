@@ -1,6 +1,7 @@
 'use strict';
 var mainApp = angular.module('mainApp', ['ngRoute','ngCookies','ngMessages', 'appRoutes', 'MainCtrl','LoginCtrl', 
-	'HomeCtrl', 'ProfileCtrl', 'UserCtrl','OfficeCtrl', 'officeCard', 'OfficeService', 'UserService', 'UserManagementCtrl', 'compareTo']);
+	'HomeCtrl', 'ProfileCtrl', 'UserCtrl','OfficeCtrl', 'officeCard', 'OfficeService', 'UserService',
+	 'UserManagementCtrl', 'compareTo', 'managedUserOffice' ]);
 
 
 /*Parse Object Injection*/
@@ -33,6 +34,8 @@ var ExtendedUser = new Parse.Object.extend("ExtendedUser", {
 	LAST_NAME      : "last_name",
 	CORPORATE_ROLE : "corporate_role",
 	CORPORATE_ROLES: ['Admin', 'Manager','Sales Rep'],
+	MANAGED_OFFICES: "managed_offices",
+	OFFICE         : 'office',
 	PARSE_USER    : "parent"});
 
 mainApp.value("ExtendedUser", ExtendedUser);

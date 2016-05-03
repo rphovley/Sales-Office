@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "dependencies": {
     "bootstrap": "latest",
+    "jquery": "latest",
     "font-awesome": "latest",
-    "animate.css": "latest",
     "angular": "latest",
     "angular-route": "latest",
     "angular-cookies": "latest",
     "angular-messages": "latest",
+    "bootstrap-material-design": "latest",
     "parse": "^1.8.1",
     "braintree-web": "^2.21.0"
   },

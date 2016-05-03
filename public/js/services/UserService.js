@@ -42,7 +42,6 @@ angular.module('UserService', [])
 	}
 	function getCurrentExtUser(){
 		var query = new Parse.Query(ExtendedUser.CLASS_NAME);
-		console.log($cookies.get(EXT_USER_COOKIE_TAG));
 		return query.get($cookies.get(EXT_USER_COOKIE_TAG));
 	}
 	function saveExtUser(user){

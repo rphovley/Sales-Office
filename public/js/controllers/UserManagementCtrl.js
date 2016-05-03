@@ -8,6 +8,7 @@ angular.module('UserManagementCtrl', []).controller('UserManagementController', 
 	UserService.getCurrentExtUser().then(function(queriedUser){
 		console.log("Success");
 		currentExtUser = queriedUser;
+		
   		if(queriedUser.isAdmin()){
 	    	$('#role').prop('disabled', false);
 		}
