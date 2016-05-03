@@ -22,7 +22,6 @@ angular.module('ProfileCtrl', []).controller('ProfileController', function($scop
 
     OfficeService.getAll().then(function(queriedOffices){
         $scope.offices = queriedOffices;
-        console.log("offices" + queriedOffices);
     }); 
 
 
