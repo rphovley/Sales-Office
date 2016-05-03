@@ -15,18 +15,18 @@
         <div class="row">
             <div class="panel panel-primary col-md-3 col-xs-3" ng-repeat="user in users">
                 <div class="panel-heading">
-                        <h4 class="panel-title">{{user.getFullName()}}</h4>
+                        <span class="lead panel-title"><strong>{{user.getFullName()}}</strong></span>
                 </div>
                 <div class="panel-body">
                     <div>
-                        <label>Role:&nbsp  </label><span id="cardInfo">{{user.get(User.CORPORATE_ROLE)}}</span>
+                        <!-- <label>Role:&nbsp  </label> --><span class="lead" id="cardInfo">{{user.get(User.CORPORATE_ROLE)}}</span>
                     </div>
                     <div>
-                        <label>Office:&nbsp  </label><span id="cardInfo">{{user.get(User.OFFICE).get("name")}}</span>
+                        <!-- <label>Office:&nbsp  </label> --><span id="cardInfo"><em>{{user.get(User.OFFICE).get("name")}}</em></span>
                     </div>
                 </div>
                     
-                <div class="card-btn text-center">
+                <div class="card-btn text-right">
                     <a href="/profile" ng-click="editUser(user)" class="btn text-info">Edit</a>
                 </div>
             </div>
