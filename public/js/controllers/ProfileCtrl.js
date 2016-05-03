@@ -12,12 +12,14 @@ angular.module('ProfileCtrl', []).controller('ProfileController', function($scop
     $scope.offices = []; 
     $scope.managed_offices = [];
 
-    UserService.getCurrentExtUser().then(function(queriedUser){
+    UserService.getCurrentExtUser(currentParseUser).then(function(queriedUser){
         currentExtUser = queriedUser;
         if(queriedUser.has(ExtendedUser.CORPORATE_ROLE) && queriedUser.isAdmin()){
             $('#role').prop('disabled', false);
             $('#office').prop('disabled', false);
         }
+    }, function(queriedUser, error){
+        console.log("Error getting user");
     });
 
     OfficeService.getAll().then(function(queriedOffices){
@@ -95,11 +97,12 @@ angular.module('ProfileCtrl', []).controller('ProfileController', function($scop
             $('#email').prop('disabled', false);
         }
     }
-
+    console.log("SAVE");
     /*Save profile*/
     $scope.saveUser = function(form) {
         console.log("STUFF");
         if(form.$valid){
+            console.log("valid from")
             $("#overlay").addClass("currently-loading");
             if(UserService.isAddEdit()===UserService.IS_ADD){
                 var username = $scope.username;
@@ -111,10 +114,14 @@ angular.module('ProfileCtrl', []).controller('ProfileController', function($scop
                    {
                     success: function(user) {
                       //redirect to home page
+                      console.log("WHAT!");
+                      extendedUser.set(ExtendedUser.PARSE_USER, user);
+                      console.log("after parse save" + extendedUser);
                       extendedUser = setUserFromScope(extendedUser);
                       saveExtendedUser(extendedUser);
                     },
                     error: function(user, error) {
+                        console.log("WHAT!");
                       $(".error").html('Someone with that username already exists').show();
                       $("#overlay").removeClass("currently-loading");
                     }
@@ -147,7 +154,7 @@ angular.module('ProfileCtrl', []).controller('ProfileController', function($scop
     
     function saveExtendedUser(extendedUser){
         UserService.saveExtUser(extendedUser).then(function(user){
-            $window.location.href= '/profile';
+            //$window.location.href= '/profile';
             $("#overlay").removeClass("currently-loading");
         }, function(error){
             $(".error").html("Couldn't update user...").show();

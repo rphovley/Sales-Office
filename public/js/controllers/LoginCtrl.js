@@ -43,7 +43,7 @@ angular.module('LoginCtrl', []).controller('LoginController', function($scope, $
     }
 
     //when a user clicks the register button
-    $scope.signup = function(form) {
+/*    $scope.signup = function(form) {
     $("#overlay").addClass("currently-loading");
       var username = $scope.username;
       var password = $scope.password;
@@ -81,12 +81,12 @@ angular.module('LoginCtrl', []).controller('LoginController', function($scope, $
      	$("#signupBtn").attr("disabled", "disabled");
 
       return false;
-    },
+    },*/
 
     //toggles between the login and the register form
-    $scope.toggleForms = function(){
+/*    $scope.toggleForms = function(){
     	console.log("logged");
     	$scope.isLogin = !$scope.isLogin;
     	return false;
-    }
+    }*/
 });

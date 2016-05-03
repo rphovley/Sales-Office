@@ -5,10 +5,11 @@ angular.module('UserManagementCtrl', []).controller('UserManagementController', 
 	var extended_user = {};
 	
 	var currentExtUser = {};
+	console.log("Success");
 	UserService.getCurrentExtUser().then(function(queriedUser){
 		console.log("Success");
 		currentExtUser = queriedUser;
-		
+		console.log(queriedUser.isAdmin());
   		if(queriedUser.isAdmin()){
 	    	$('#role').prop('disabled', false);
 		}

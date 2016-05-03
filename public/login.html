@@ -4,35 +4,35 @@
     </div>
     <div class="row pagination-centered col-md-6 col-md-offset-3 col-xs-6 col-xs-offset-3"  ng-controller="LoginController">
         <div id="overlay"><img src="img\spinner.gif" alt="Be patient..." /></div>
-        <form name="loginForm" ng-show="isLogin">
-          <h3>Login</h3>
+        <form name="loginForm" class="inputs" >
+          <h3 class="text-center">Login to Office Management Tool</h3>
           <div class="error" style="display:none"></div>
-          <div class="input-field">
-            <input type="text" id="login-username" ng-model="username"/>
-            <label for="login_username">Username</label>
+          <div class="form-group">
+            <input class="form-control validate" type="text" id="login-username" ng-model="username" placeholder="Username"/>
           </div>
-          <div class="input-field">
-            <input type="password" id="login-password" ng-model="password" />
-            <label for="login-password">Password</label>
+          <div class="form-group">
+            <input class="form-control validate " type="password" id="login-password" ng-model="password" placeholder="Password"/>
           </div>
 
           <div class="row container">
-                <button id="loginBtn" class="btn btn-default col-md-2" type="submit" ng-click="logIn(loginForm)">Login</button>
-                <button class="btn btn-default col-md-2" ng-click="toggleForms()">Register</button>
+                <button id="loginBtn" class="btn btn-info" type="submit" ng-click="logIn(loginForm)">Login</button>
           </div>
         </form>
-        <form name="signupForm" ng-show="!isLogin">
+        <!-- <form name="signupForm" ng-show="!isLogin">
               <h2>Sign Up</h2>
               <div class="error" style="display:none"></div>
-              <input type="text" id="signup-username" ng-model="username" placeholder="Username" required/>
-              <input type="text" id="signup-email" ng-model="email" placeholder="Email" required/>
-              <input type="password" id="signup-password" ng-model="password" placeholder="Create a Password" required/>
+               <div class="form-group">
+                <input class="form-control validate" type="text" id="signup-username" ng-model="username" placeholder="Username" required/>
+              </div>
+              <div class="form-group">
+                <input class="form-control validate" type="text" id="signup-email" ng-model="email" placeholder="Email" required/>
+              </div>
+              <div class="form-group">
+                <input class="form-control validate" type="password" id="signup-password" ng-model="password" placeholder="Create a Password" required/>
+              </div>
               <button id="signupBtn" class="btn btn-default" type="submit" ng-click="signup(signupForm)">Sign Up</button>
               <a ng-click="toggleForms()">Already have an account?</a>
-        </form>
-    </div>
-    <div class="row center-block">
-        <h2 class="col-md-8 col-md-offset-3 col-xs-8 col-xs-offset-3">Be the next Big Thing!</h2>
+        </form> -->
     </div>
 </div>
 

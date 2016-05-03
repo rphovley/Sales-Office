@@ -5,7 +5,10 @@
         
         <br>
         <div class="row inputs">
-            <div  id="userSearch" class="form-group label-floating col-md-6 col-md-offset-3" role="search">
+            <div class="card-btn col-xs-1 col-md-1">
+                <a href="/profile" ng-click="addUser()" class="btn btn-warning btn-raised">Add</a>
+            </div>
+            <div  id="userSearch" class="form-group label-floating col-md-6 col-md-offset-2" role="search">
                 <input type="text" class="form-control" id="search" placeholder="Search Users" ng-keypress="search($event)">
             </div>
            
@@ -13,9 +16,9 @@
         
         <div id="overlay"><img src="img\spinner.gif" alt="Be patient..." /></div>
         <div class="row">
-            <div class="panel panel-primary col-md-3 col-xs-3" ng-repeat="user in users">
+            <div class="panel panel-primary col-md-3 col-xs-5" ng-repeat="user in users">
                 <div class="panel-heading">
-                        <span class="lead panel-title"><strong>{{user.getFullName()}}</strong></span>
+                        <span class="lead "><strong>{{user.getFullName()}}</strong></span>
                 </div>
                 <div class="panel-body">
                     <div>
@@ -32,12 +35,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="card-btn col-xs-1">
-                <a href="/profile" ng-click="addUser()" class="btn btn-warning btn-raised">Add</a>
-            </div>
-            <div class="card-btn col-xs-1">
-                <a href="#" ng-click="" class="btn btn-default btn-raised">Next</a>
-            </div>
+            
         </div>
         
         

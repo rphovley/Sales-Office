@@ -1,7 +1,7 @@
 'use strict';
 var mainApp = angular.module('mainApp', ['ngRoute','ngCookies','ngMessages', 'appRoutes', 'MainCtrl','LoginCtrl', 
 	'HomeCtrl', 'ProfileCtrl', 'UserCtrl','OfficeCtrl', 'officeCard', 'OfficeService', 'UserService',
-	 'UserManagementCtrl', 'compareTo', 'managedUserOffice' ]);
+	 'UserManagementCtrl', 'compareTo', 'managedUserOffice', 'officeManagers' ]);
 
 
 /*Parse Object Injection*/

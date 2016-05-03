@@ -99,3 +99,6 @@ a.text-info:hover {
 .btn-delete{
   left: -5px;
 }
+.office-managers > div > span{
+  font-weight: normal;
+}
