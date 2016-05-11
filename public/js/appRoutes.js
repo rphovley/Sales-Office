@@ -11,10 +11,6 @@
             .when('/login',{
                 redirectTo:'/'
             })
-             //profile controller
-            .when('/profile', {
-                templateUrl: 'views/profile.html'
-            })
             .when('/users', {
                 templateUrl: 'views/users.html'
             })

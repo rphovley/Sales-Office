@@ -1,8 +1,8 @@
 
 'use strict';
 // public/js/controllers/MainCtrl.js
-angular.module('LoginCtrl', []).controller('LoginController', function($scope, $location, $window, ExtendedUser, UserService) {
-
+angular.module('LoginCtrl', []).controller('LoginController', function($scope, $location, $window, UserService) {
+	var ExtendedUser = UserService.ExtendedUser
 	$scope.isLogin = true;
     $scope.username = "";
     $scope.password = "";

@@ -1,6 +1,6 @@
 'use strict';
 angular.module('UserService', [])
-.factory('UserService', function($cookies, ExtendedUser) {
+.factory('UserService', function($cookies) {
 	var USER_COOKIE_TAG = 'user_id';
 	var EXT_USER_COOKIE_TAG = 'current_user_id';
 	var IS_ADD_EDIT_TAG = 'is_add_edit';
@@ -8,6 +8,33 @@ angular.module('UserService', [])
 	var IS_EDIT    = '2';
 	var IS_PROFILE = '3';
 	var currentUser = {};
+
+	var ExtendedUser = new Parse.Object.extend("ExtendedUser", {
+	//Instance methods
+		getFullName : function(){
+			return this.get("first_name") + " " + this.get("last_name");
+		},
+		isAdmin : function(){
+			console.log("CORPORATE ROLE: " + this.get(ExtendedUser.CORPORATE_ROLE));
+			console.log(this.get(ExtendedUser.CORPORATE_ROLE) === 'Admin');
+			return this.get(ExtendedUser.CORPORATE_ROLE) === 'Admin';
+		},
+		
+	}, {CLASS_NAME     : "ExtendedUser",
+		USERNAME       : "username",
+		PASSWORD       : "password",
+		EMAIL          : "email",
+		_ID            : "id",
+		FIRST_NAME     : "first_name",
+		LAST_NAME      : "last_name",
+		CORPORATE_ROLE : "corporate_role",
+		CORPORATE_ROLES: ['Admin', 'Manager','Sales Rep'],
+		MANAGED_OFFICES: "managed_offices",
+		OFFICE         : 'office',
+		PARSE_USER     : "parent",
+		getSelector : function(fieldName){
+			return "#" + fieldName;
+		}});
 
 	function set(user) {
 		$cookies.put(USER_COOKIE_TAG, user.id);
@@ -59,6 +86,7 @@ angular.module('UserService', [])
 		IS_ADD     : IS_ADD,
 		IS_EDIT    : IS_EDIT,
 		/*Functions*/
+		ExtendedUser : ExtendedUser,
 		set: set,
 		get: get,
 		setAddEdit: setAddEdit,

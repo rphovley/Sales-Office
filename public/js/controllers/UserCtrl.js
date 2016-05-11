@@ -1,12 +1,13 @@
 'use strict';
 // public/js/controllers/UserCtrl.js
 
-angular.module('UserCtrl', []).controller('UserController', function($scope, $location, ExtendedUser, UserService, OfficeService) {
+angular.module('UserCtrl', []).controller('UserController', function($scope, $location, UserService, OfficeService) {
 
     $scope.search = function(event) {
         var keyValue = String.fromCharCode(event.keyCode);
         console.log(keyValue);
     }
+    var ExtendedUser = UserService.ExtendedUser
     var Office = OfficeService.Office;
     //dynamic list
     var userList = [];

@@ -23,7 +23,7 @@ angular.module('MainCtrl', []).controller('MainController', function($scope, $lo
 
     $scope.editProfile = function(){
         UserService.setAddEdit(UserService.IS_PROFILE);
-        $window.location.href= '/profile';
+        $window.location.href= '/user_management';
     }
     
 });
