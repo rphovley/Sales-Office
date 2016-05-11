@@ -16,23 +16,23 @@
         
         <div id="overlay"><img src="img\spinner.gif" alt="Be patient..." /></div>
         <div class="row">
-            <div class="panel panel-primary col-md-3 col-xs-5" ng-repeat="user in users">
+            <!-- <div class="panel panel-primary col-md-3 col-xs-5" ng-repeat="user in users">
                 <div class="panel-heading">
                         <span class="lead "><strong>{{user.getFullName()}}</strong></span>
                 </div>
                 <div class="panel-body">
                     <div>
-                        <!-- <label>Role:&nbsp  </label> --><span class="lead" id="cardInfo">{{user.get(User.CORPORATE_ROLE)}}</span>
+                        <span class="lead" id="cardInfo">{{user.get(User.CORPORATE_ROLE)}}</span>
                     </div>
                     <div>
-                        <!-- <label>Office:&nbsp  </label> --><span id="cardInfo"><em>{{user.get(User.OFFICE).get("name")}}</em></span>
+                        <span id="cardInfo"><em>{{user.get(User.OFFICE).get("name")}}</em></span>
                     </div>
                 </div>
                     
                 <div class="card-btn text-right">
                     <a href="/user_management" ng-click="editUser(user)" class="btn text-info">Edit</a>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="row">
             
