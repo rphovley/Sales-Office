@@ -36,6 +36,11 @@ body{
 #overlay.currently-loading img { 
     display: block; 
 }
+#overlay.tiny-loading img { 
+    display: inline !important;
+    width: 20px;
+    height: 20px; 
+}
 
 
 #inside {
@@ -101,4 +106,23 @@ a.text-info:hover {
 }
 .office-managers > div > span{
   font-weight: normal;
+}
+
+
+.no-wrap{
+  white-space:nowrap;
+}
+
+.btn-fab-tiny{
+  height: 20px !important;
+  width: 20px !important;
+}
+.btn-fab-tiny > i{
+  top: -12px !important;
+  left: -12px !important;
+  width: 20px !important;
+}
+.input-table{
+  width:75px;
+  display:inline;
 }

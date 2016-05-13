@@ -4,7 +4,7 @@
 angular.module('UserCtrl', []).controller('UserController', function($scope, $location, UserService, OfficeService) {
 
 
-    /*$scope.search = function(event) {
+    $scope.search = function(event) {
         var keyValue = String.fromCharCode(event.keyCode);
         console.log(keyValue);
     }
@@ -48,6 +48,5 @@ angular.module('UserCtrl', []).controller('UserController', function($scope, $lo
     }
     $scope.addUser = function(){
         UserService.setAddEdit(UserService.IS_ADD);
-    }*/
-    
+    }
 });

@@ -33,6 +33,35 @@
                     <a href="/user_management" ng-click="editUser(user)" class="btn text-info">Edit</a>
                 </div>
             </div> -->
+            <div class="col-md-10 col-md-offset-1">
+                <table class="table table-striped table-hover">
+                    <thead >
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Username</th>
+                            <th>Office</th>
+                            <th>Actions</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="user in users">
+                            <!-- <user-fields />
+                            <user-fields field="User.LAST_NAME" dir-user="user"/> -->
+                            <td class="no-wrap"><user-text-fields field="User.FIRST_NAME" user="user"></user-text-fields></td>
+                            <td class="no-wrap"><user-text-fields field="User.LAST_NAME" user="user"></user-text-fields></td>
+                            <td><user-dropdowns field="User.CORPORATE_ROLE" user="user"></user-dropdowns></td>
+                            <td><user-dropdowns field="User.OFFICE" user="user"></user-dropdowns></td>
+                            <td class="no-wrap"><user-text-fields field="User.USERNAME" user="user" is-parse-field="true"></user-text-fields></td>
+                            <td class="no-wrap"><user-text-fields field="User.EMAIL" user="user" is-parse-field="true"></user-text-fields></td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="row">
             

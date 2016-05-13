@@ -7,7 +7,9 @@ angular.module('UserService', [])
 	var IS_ADD     = '1';
 	var IS_EDIT    = '2';
 	var IS_PROFILE = '3';
-	var currentUser = {};
+	var currentExtendedUser = {};
+	var editingExtendedUser = {};
+	var editingParseUser    = {};
 
 	var ExtendedUser = new Parse.Object.extend("ExtendedUser", {
 	//Instance methods
@@ -34,7 +36,8 @@ angular.module('UserService', [])
 		PARSE_USER     : "parent",
 		getSelector : function(fieldName){
 			return "#" + fieldName;
-		}});
+		}
+	});
 
 	function set(user) {
 		$cookies.put(USER_COOKIE_TAG, user.id);
@@ -72,9 +75,8 @@ angular.module('UserService', [])
 		return query.get($cookies.get(EXT_USER_COOKIE_TAG));
 	}
 	function saveExtUser(user){
-		$("#overlay").addClass("currently-loading");
-            //save the user information
-            return user.save(null);
+        //save the user information
+        return user.save(null);
 	}
 
 	return {
@@ -93,7 +95,11 @@ angular.module('UserService', [])
 		isAddEdit: isAddEdit,
 		setCurrentExtUser: setCurrentExtUser,
 		getCurrentExtUser: getCurrentExtUser,
-		saveExtUser: saveExtUser
+		saveExtUser: saveExtUser,
+		/*User Objects*/
+		currentExtendedUser : currentExtendedUser,
+		editingExtendedUser : editingExtendedUser,
+		editingParseUser    : editingParseUser
 	}
 
 });
