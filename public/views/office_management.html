@@ -1,0 +1,25 @@
+<div id="outside" ng-controller="OfficeController">
+    <div id="overlay"><img src="img\spinner.gif" alt="Be patient..." /></div>
+    <div class="row" id="inside">
+        <form name="form" class="col-md-12 inputs">
+            <div class="row">
+                <div class="label-floating col-md-6">
+                  <label for="name" id="name_lbl" >Office Name</label>
+                  <input type="text" id="name" ng-model="name" class="form-control validate">
+                </div>
+            </div>
+            <div class="row">
+                <div class="label-floating col-md-3 col-xs-3">
+                  <label for="city" id="city_lbl">City</label>
+                  <input type="text" id="city" ng-model="city" class="form-control validate" required>
+                </div>
+              <div class="col-md-2 col-xs-2">
+                <label for="state" id="state_lbl">State</label>
+                <select class="form-control" ng-model="state" id="state" ng-options="state for state in states">
+                </select>
+              </div>
+            </div>
+            <button id="updateOfficeBtn" class="btn btn-info btn-raised" type="submit" ng-click="updateOffice(form)">Update Profile</button>
+        </form>
+    </div>
+</div>

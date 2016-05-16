@@ -1,0 +1,17 @@
+<div class="row">
+<div id="overlay"><img src="img\spinner.gif" alt="Be patient..." /></div>
+    <div class="panel panel-primary col-md-2 col-xs-4" ng-repeat="office_dir in offices">
+        <div class="panel-heading">
+            <!-- <div class="delete">x</div> -->
+                <div class="lead panel-info"><strong>{{office_dir.get(officeProto.NAME)}}</div>
+        </div>
+        <div class="panel-body">
+            <p><em>{{office_dir.get(officeProto.STATE)}}</em></p>
+            <office-managers office="office_dir"></office-managers>
+        </div>
+        <div class="card-btn text-center">
+            <a href="/office_management" ng-click="editOfficeDir(office_dir)" class="btn text-info">Edit</a>
+            <!-- <a href="/delete" ng-click="deleteOffice(office_dir)" class="btn btn-danger">Delete</a> -->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+<span ng-cloak ng-if="!editing" class="input-table" ng-dblClick="inputHandling()" ng-bind="field_value"></span>
+<span ng-if="editing">
+	<input class="validate form-control input-table" type="text" ng-model="field_value"/>
+	<button id="editOfficeBtn" class="btn btn-success btn-fab btn-fab-mini btn-fab-tiny " type="submit" ng-click="confirmEdit()"\><i class="material-icons btn-check">check circle</i></button>
+
+</span>
+<span id="overlay"><img src="img\spinner.gif" alt="Be patient..." /></span>
+

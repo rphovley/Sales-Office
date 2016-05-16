@@ -1,0 +1,18 @@
+<form name="officeForm" class="row form-group">
+      <div class="col-md-2 col-xs-4">
+          <select class="form-control" ng-model="new_office" id="new_office" ng-options="office.get('name') for office in offices track by office.id" required>
+            <option value="" disabled selected>Office</option>
+          </select>
+      </div> 
+      <div class="col-md-2 col-xs-4">
+          <select class="form-control" ng-model="new_type" id="new_type" ng-options="managed_type for managed_type in managed_types" required>
+            <option value="" disabled selected>Type</option>
+          </select>
+      </div> 
+      <div class="col-md-1 col-xs-3">
+          <input placeholder="Rate" type="text" name="new_rate" class="form-control label-floating " ng-model="new_rate" required/>
+      </div> 
+        <button ng-if="isAdd" id="addOfficeBtn" class="btn btn-warning btn-raised btn-sm" type="submit" ng-click="addOffice(officeForm)">Add</button>
+        <button ng-if="!isAdd" id="editOfficeBtn" class="btn btn-success btn-fab btn-fab-mini " type="submit" ng-click="editOffice(officeForm)"><i class="material-icons btn-check">check circle</i></button>
+        <button ng-if="!isAdd" id="deleteOfficeBtn" class="btn btn-danger btn-fab btn-fab-mini " type="submit" ng-click="deleteOffice()"><i class="material-icons btn-delete">delete</i></button><span style="padding-left:10px;" id="office_notification"></span>
+</form >

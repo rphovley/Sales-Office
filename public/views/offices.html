@@ -1,0 +1,21 @@
+<div id="outside" ng-controller="OfficeController">
+    <div id="inside">
+		<h3 class="text-center">Offices</h3>
+        
+        <br>
+        <div class="row inputs">
+            <div class="card-btn col-xs-1 col-md-1 form-group label-floating">
+                <a href="/office_management" ng-click="addOffice(true)" class="btn btn-warning btn-md waves-effect waves-light">Add</a>
+            </div>
+            <div  id="userSearch" class=" col-md-6 col-md-offset-2" role="search">
+                <input type="text" class="form-control" id="search" placeholder="Search Offices" ng-keypress="search($event)">
+            </div>
+            
+        </div>
+		<office-card office-Proto="Office"></office-card>
+		<div class="row">
+            
+        </div>
+	</div>
+    
+</div>

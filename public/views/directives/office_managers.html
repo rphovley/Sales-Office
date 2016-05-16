@@ -1,0 +1,11 @@
+<div class="office-managers">
+	<div>
+		<span><strong>Managers:</strong> </span><span ng-repeat='manager in managers'>{{manager.getFullName()}} &nbsp</span> 
+	</div>
+	<div>
+		<span><strong>Regionals:</strong></span><span ng-repeat='regional in regionals'>{{regional.getFullName()}} &nbsp</span>
+	</div>
+	<div>
+		<span><strong>Divisionals:</strong></span><span ng-repeat='divisional in divisionals'>{{divisional.getFullName()}} &nbsp</span>
+	</div>
+</div>

@@ -1,0 +1,14 @@
+<div ng-if="isOffice">
+	<select class="form-control dropdown" ng-model="office" ng-options="office.get('name') for office in offices track by office.id" ng-click="editing()" ng-change="onOfficeChange(office)">
+		<option value="" disabled selected>Office</option>
+	</select>
+	<button ng-if="isEditing" id="editOfficeBtn" class="btn btn-success btn-fab btn-fab-mini btn-fab-tiny" ng-click="confirmOfficeEdit()" type="submit"\><i class="material-icons btn-check">check</i></button>
+	<span id="overlay"><img src="img\spinner.gif" alt="Be patient..." />
+</div>
+<div ng-if="!isOffice">
+	<select class="form-control dropdown" ng-model="role" ng-options="role for role in roles" ng-click="editing()" ng-change="onRoleChange(role)">
+		<option value="" disabled selected>Role</option>
+	</select>
+	<button ng-if="isEditing" id="editOfficeBtn" class="btn btn-success btn-fab btn-fab-mini btn-fab-tiny " ng-click="confirmRoleEdit()" type="submit"\><i class="material-icons btn-check">check</i></button>
+	<span id="overlay"><img src="img\spinner.gif" alt="Be patient..." />
+</div>
