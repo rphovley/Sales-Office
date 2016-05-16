@@ -6,7 +6,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngCookies','ngMessages', 'ap
 
 /*Parse Object Injection*/
 Parse.initialize("test_id");
-Parse.serverURL = 'http://officedev.paulhovley.com/parse';
+Parse.serverURL = 'https://officedev.paulhovley.com/parse';
 Parse.User.extend();
 /*Inject currentUser*/
 
