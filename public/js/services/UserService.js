@@ -47,6 +47,7 @@ angular.module('UserService', [])
 	* if a user is passed, it will find the extended user from its parse user relationship,
 	* otherwise it will get it from the object id
 	*/
+
 	function get(user) {
 		var query = new Parse.Query(ExtendedUser.CLASS_NAME);
 		if(user){

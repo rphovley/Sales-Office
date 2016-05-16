@@ -126,3 +126,8 @@ a.text-info:hover {
   width:75px;
   display:inline;
 }
+
+.dropdown-edit{
+  width: 150px;
+  display:inline;
+}
